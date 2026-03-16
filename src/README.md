@@ -1,0 +1,22 @@
+- Você montou uma API de "Geladeira" seguindo o padrão de mercado. Aqui está o resumo do que você fez, do jeito mais simples possível:
+  - Arquitetura em Camadas (O Caminho do Dado):
+    - Controller: O "porteiro". Ele recebe o JSON, valida se os dados fazem sentido e decide o que responder (200, 201, 400, 404).
+    - Service: O "cérebro". Ele pega os dados do porteiro, faz as contas, verifica se o item existe e manda salvar. Ele não sabe o que é um JSON, ele lida com lógica.
+    - Repository: O "arquivista". Ele só sabe salvar, buscar e deletar no banco de dados.
+    - Model: A "gaveta". É o desenho exato da sua tabela no banco de dados.
+  - DTOs (Data Transfer Objects):
+    - Você parou de usar a Model (banco) para receber dados da internet.
+    - Criou o FoodRequestDTO (exigente) para criar/substituir alimentos e o FoodUpdateDTO (flexível) para atualizar só um pedacinho (PATCH).
+  - Records (Java Moderno):
+    - Em vez de classes pesadas para os DTOs, você usou record. Isso deixou o código muito mais curto e imutável (mais seguro).
+  - Bean Validation e Groups:
+    - Usou "etiquetas" (@NotBlank, @Size) para o Spring conferir os dados automaticamente.
+    - Com o OnCreate, você ensinou o sistema a ser rigoroso no cadastro, mas permitir campos opcionais na atualização.
+  - Tratamento de Exceções:
+    - Criou suas próprias mensagens de erro (ResourceNotFoundException, BadRequestException).
+    - Isso evita que o usuário veja erros técnicos "feios" e receba apenas a mensagem que você escreveu.
+  - Injeção de Dependência:
+    - Usou o Construtor para conectar as peças (Controller -> Service -> Repository). É o jeito mais seguro de "colar" as partes do sistema.
+
+
+- FALTA CRIAR DOCUMENTAÇÃO PARA APRENDER!
