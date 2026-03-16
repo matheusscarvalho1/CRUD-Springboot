@@ -4,7 +4,7 @@ import com.estudos.java.spring.Fridge.groups.OnCreate;
 import jakarta.validation.constraints.*;
 import java.time.LocalDate;
 
-public record FoodRequestDTO(
+public record FoodCreateDTO(
         @NotBlank(groups = OnCreate.class, message = "O nome é obrigatório")
         @Size(min = 3, message = "O nome deve ter pelo menos 3 caracteres")
         String name,

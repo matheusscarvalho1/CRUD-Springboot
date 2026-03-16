@@ -1,6 +1,6 @@
 package com.estudos.java.spring.Fridge.service;
 
-import com.estudos.java.spring.Fridge.dto.FoodRequestDTO;
+import com.estudos.java.spring.Fridge.dto.FoodCreateDTO;
 import com.estudos.java.spring.Fridge.dto.FoodUpdateDTO;
 import com.estudos.java.spring.Fridge.exceptions.BadRequestException;
 import com.estudos.java.spring.Fridge.exceptions.NotFoundException;
@@ -29,7 +29,7 @@ public class FoodService {
     }
 
     // POST
-    public FoodModel save(FoodRequestDTO dto) {
+    public FoodModel save(FoodCreateDTO dto) {
         FoodModel food = new FoodModel();
         food.setName(dto.name());
         food.setExpirationDate(dto.expirationDate());
@@ -72,7 +72,7 @@ public class FoodService {
     }
 
     // PUT
-    public FoodModel update(Long id, FoodRequestDTO dto) {
+    public FoodModel update(Long id, FoodCreateDTO dto) {
         // 1. Busca o registro existente (reutilizando seu método listById)
         FoodModel foodExistente = listById(id);
 

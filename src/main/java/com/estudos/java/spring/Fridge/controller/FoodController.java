@@ -1,19 +1,17 @@
 package com.estudos.java.spring.Fridge.controller;
 
-import com.estudos.java.spring.Fridge.dto.FoodRequestDTO;
+import com.estudos.java.spring.Fridge.dto.FoodCreateDTO;
 import com.estudos.java.spring.Fridge.dto.FoodUpdateDTO;
 import com.estudos.java.spring.Fridge.groups.OnCreate;
 import com.estudos.java.spring.Fridge.model.FoodModel;
 import com.estudos.java.spring.Fridge.service.FoodService;
 import jakarta.validation.Valid;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Map;
 
 @RestController
 @RequestMapping("/food")
@@ -44,7 +42,7 @@ public class FoodController {
 
     @PostMapping
     // @Validated(OnCreate.class) ativa as regras que você marcou com esse grupo no DTO
-    public ResponseEntity<FoodModel> create(@Validated(OnCreate.class) @RequestBody FoodRequestDTO foodDto) {
+    public ResponseEntity<FoodModel> create(@Validated(OnCreate.class) @RequestBody FoodCreateDTO foodDto) {
         FoodModel createdFood = foodService.save(foodDto);
         return ResponseEntity.status(HttpStatus.CREATED).body(createdFood);
     }
@@ -56,7 +54,7 @@ public class FoodController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<FoodModel> update(@PathVariable Long id, @Validated(OnCreate.class) @RequestBody FoodRequestDTO foodDto) {
+    public ResponseEntity<FoodModel> update(@PathVariable Long id, @Validated(OnCreate.class) @RequestBody FoodCreateDTO foodDto) {
         FoodModel updatedFood = foodService.update(id, foodDto);
         return ResponseEntity.status(HttpStatus.OK).body(updatedFood);
     }
