@@ -36,7 +36,7 @@ public class FoodController {
 
     @GetMapping("/{id}")
     public ResponseEntity<FoodModel> getById(@PathVariable Long id) {
-        FoodModel food = foodService.listById(id);
+        FoodModel food = foodService.getById(id);
         return ResponseEntity.status(HttpStatus.OK).body(food);
     }
 

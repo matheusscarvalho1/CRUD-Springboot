@@ -7,6 +7,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 import jakarta.persistence.Id;
+import jakarta.persistence.Column;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -25,13 +26,13 @@ public class FoodModel {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @jakarta.persistence.Column(nullable = false)
+    @Column(nullable = false, length = 100)
     private String name;
 
-    @jakarta.persistence.Column(nullable = false)
+    @Column(nullable = false)
     private LocalDate expirationDate;
 
-    @jakarta.persistence.Column(nullable = false)
+    @Column(nullable = false)
     private Integer quantity;
 
     // OUTRAS FORMAS 
