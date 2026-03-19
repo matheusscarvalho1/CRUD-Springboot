@@ -1,6 +1,7 @@
 package com.estudos.java.spring.Fridge.model;
 
-import com.estudos.java.spring.Fridge.dto.FoodCreateDTO;
+//import com.estudos.java.spring.Fridge.dto.FoodCreateDTO;
+
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Entity;
@@ -33,12 +34,12 @@ public class FoodModel {
     @jakarta.persistence.Column(nullable = false)
     private Integer quantity;
 
-
-     public FoodModel(FoodCreateDTO dto) {
-         this.name = name;
-         this.expirationDate = expirationDate;
-         this.quantity = quantity;
-     }
+    // OUTRAS FORMAS 
+        //  public FoodModel(FoodCreateDTO dto) {
+        //      this.name = name;
+        //      this.expirationDate = expirationDate;
+        //      this.quantity = quantity;
+        //  }
     // GETTERS AND SETTERS @Getters, @Setters
         // public Long getId() {
         //     return id;
